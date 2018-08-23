@@ -85,20 +85,6 @@ _options:
 
 <p class="success">Message sent, we'll be in touch soon.</p>
 
-<p class="dates">
-	{{ page.start_datetime | date: "%A %-d of %B %Y %-I%P" }} - {{ page.end_datetime | date: "%-I%P" }}
-	<span class="addtocalendar atc-style-button-icon atc-style-menu-wb">
-		<a class="atcb-link">{% include icons/date.svg %}</a>
-		<var class="atc_event">
-			<var class="atc_date_start">{{ page.start_datetime | date: "%Y-%m-%d %H:%M:%S" }}</var>
-			<var class="atc_date_end">{{ page.end_datetime | date: "%Y-%m-%d %H:%M:%S" }}</var>
-			<var class="atc_timezone">{{ page.timezone }}</var>
-			<var class="atc_title">{{ page.title }}</var>
-			<var class="atc_description">{{ page.description }}</var>
-			<var class="atc_location">{{ page.map.address }}</var>
-		</var>
-	</span>
-</p>
 <p class="editable">Malt is an annual festival celebrating the finest craft beer in San Francisco. This year we have over 50 craft beers on tap, food trucks, live music and entertainment. Tickets are available right here for $45. Valid government issued ID required on entry.</p>
 
 <h3 class="editable">Featured brews</h3>
@@ -116,7 +102,7 @@ _options:
 <h3 class="editable">Get your tickets</h3>
 {{ site.eventbrite_embed }}
 
-<h3 class="editable">Tell your friends</h3>
+<!-- <h3 class="editable">Tell your friends</h3>
 <div class="sharing">
 	{% assign share_url = page.url | absolute_url | cgi_escape %}
 	<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}">{% include icons/social-icon.html icon="Facebook" %}</a>
@@ -124,7 +110,7 @@ _options:
 	<a class="google-plus" href="https://plus.google.com/share?url={{ share_url }}">{% include icons/social-icon.html icon="Google Plus" %}</a>
 	<a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ share_url }}">{% include icons/social-icon.html icon="LinkedIn" %}</a>
 	<a class="email" href="mailto:?subject=I'm going to this event&amp;body=Check%20it%20out%20-%20{{ share_url }}">{% include icons/social-icon.html icon="Email" %}</a>
-</div>
+</div> -->
 
 <h3 class="editable">Location</h3>
 <div class="map" id="gmap_canvas"></div>

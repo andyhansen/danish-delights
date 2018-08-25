@@ -24,7 +24,7 @@ photos:
   A bunch of other stuff down here too because I kind of want this to be a fairly big paragraph..
 </p>
 
-<h3>Photos</h3>
+<!-- <h3>Photos</h3>
 <div class="gallery">
 	{% for feature in page.photos %}
 	<a href="{% include relative-src.html src=feature.link %}">
@@ -34,12 +34,14 @@ photos:
 		<p class="caption">{{ feature.title }}</p>
 	</a>
 	{% endfor %}
-</div>
+</div> -->
 
 <h3>Photos</h3>
 <div class="grid">
 	{% for photo in page.photos %}
-		<div class="grid-item"><a class="fancybox" rel="group" href="{% include relative-src.html src=photo.image %}"><img src="{% include relative-src.html src=photo.image %}" alt="{{ photo.title }}"/></a></div>
+		<div class="grid-item">
+			<a class="fancybox" rel="group" href="{% include relative-src.html src=photo.image %}"><img src="{% include relative-src.html src=photo.image %}" alt="{{ photo.title }}"/></a>
+		</div>
 	{% endfor %}
 </div>
 

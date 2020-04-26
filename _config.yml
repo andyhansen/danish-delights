@@ -2,15 +2,15 @@
 # Site
 
 title: Danish Delights Bakery
-url: "https://whispering-boat.cloudvent.net"
+url: "https://danishdelights.co.nz"
 baseurl:
 google_analytics_key:
-google_maps_javascript_api_key:
+google_maps_javascript_api_key: AIzaSyC6osa-Gws5vIqoHiQnGnduGTqU-DSdQJY
 timezone: Etc/UTC
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /siteicon.png
-description: Danish Delights, a Dunedin based bakery
+description: Danish Delights, a Dunedin bakery
 author:
   name:
   email:

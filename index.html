@@ -8,95 +8,110 @@ map:
   latitude: -45.898376
   longitude: 170.485656
 photos:
-  - image: /uploads/biscuits.jpg
-    title: Biscuits
   - image: /uploads/cakes-1.jpg
     title: Cakes
   - image: /uploads/cakes-2.jpg
     title: Cakes
   - image: /uploads/pies.jpg
     title: Pies
+open_hours:
+  - day: Sunday
+    hours: Closed
+  - day: Monday
+    hours: Closed
+  - day: Tuesday to Friday
+    hours: 8:30am - 5pm
+  - day: Saturday
+    hours: 9am - 4pm
 ---
-	
+  
 <p>
-	Danish Delights is a family owned and operated bakery located in Dunedin.
+  Danish Delights is a family owned and operated bakery located in Dunedin.
   Extra text to pad it out lots and lots and lots and lots and lots.
   A bunch of other stuff down here too because I kind of want this to be a fairly big paragraph..
 </p>
 
 <!-- <h3>Photos</h3>
 <div class="gallery">
-	{% for feature in page.photos %}
-	<a href="{% include relative-src.html src=feature.link %}">
-		<div class="inner-wrapper">
-			<img src="{% include relative-src.html src=feature.image %}" alt="{{ feature.title }}">
-		</div>
-		<p class="caption">{{ feature.title }}</p>
-	</a>
-	{% endfor %}
+  {% for feature in page.photos %}
+  <a href="{% include relative-src.html src=feature.link %}">
+    <div class="inner-wrapper">
+      <img src="{% include relative-src.html src=feature.image %}" alt="{{ feature.title }}">
+    </div>
+    <p class="caption">{{ feature.title }}</p>
+  </a>
+  {% endfor %}
 </div> -->
 
 <h3>Photos</h3>
 <div class="grid">
-	{% for photo in page.photos %}
-		<div class="grid-item">
-			<a class="fancybox" rel="group" href="{% include relative-src.html src=photo.image %}"><img src="{% include relative-src.html src=photo.image %}" alt="{{ photo.title }}"/></a>
-		</div>
-	{% endfor %}
+  {% for photo in page.photos %}
+    <div class="grid-item">
+      <a class="fancybox" rel="group" href="{% include relative-src.html src=photo.image %}"><img src="{% include relative-src.html src=photo.image %}" alt="{{ photo.title }}"/></a>
+    </div>
+  {% endfor %}
 </div>
 
 <!-- <h3>Tell your friends</h3>
 <div class="sharing">
-	{% assign share_url = page.url | absolute_url | cgi_escape %}
-	<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}">{% include icons/social-icon.html icon="Facebook" %}</a>
-	<a class="twitter" href="https://twitter.com/intent/tweet?url={{ share_url }}&amp;text=I'm%20going%20to%20this%20event!">{% include icons/social-icon.html icon="Twitter" %}</a>
-	<a class="google-plus" href="https://plus.google.com/share?url={{ share_url }}">{% include icons/social-icon.html icon="Google Plus" %}</a>
-	<a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ share_url }}">{% include icons/social-icon.html icon="LinkedIn" %}</a>
-	<a class="email" href="mailto:?subject=I'm going to this event&amp;body=Check%20it%20out%20-%20{{ share_url }}">{% include icons/social-icon.html icon="Email" %}</a>
+  {% assign share_url = page.url | absolute_url | cgi_escape %}
+  <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}">{% include icons/social-icon.html icon="Facebook" %}</a>
+  <a class="twitter" href="https://twitter.com/intent/tweet?url={{ share_url }}&amp;text=I'm%20going%20to%20this%20event!">{% include icons/social-icon.html icon="Twitter" %}</a>
+  <a class="google-plus" href="https://plus.google.com/share?url={{ share_url }}">{% include icons/social-icon.html icon="Google Plus" %}</a>
+  <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ share_url }}">{% include icons/social-icon.html icon="LinkedIn" %}</a>
 </div> -->
 
-<h3>Location</h3>
-<div class="map" id="gmap_canvas"></div>
-<address><a href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{% include icons/place.svg %} {{ page.map.address }}</a></address>
+<h3>Hours</h3>
+<ul class="open_hours">
+  {% for opening in page.open_hours %}
+    <li><span class="day">{{ opening.day }}</span>: <span class="hours">{{ opening.hours }}</span></li>
+  {% endfor %}
+</ul>
 
+<h3>Contact</h3>
+<p>Give us a call at <a href"tel:034555805">03 455 4808</a></p>
+
+<h3>Location</h3>
+<address class="address"><a href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{% include icons/place.svg %} {{ page.map.address }}</a></address>
+<div class="map" id="gmap_canvas"></div>
 
 <!-- <h3>Contact</h3>
 <p>Send us a message with any questions about sponsoring the event, tickets or anything else.</p>
 
 <form method="post" action="{{ site.baseurl }}/index.html?submit=success">
-	<label for="email_address">Email Address</label>
-	<input id="email_address" type="text" name="email">
+  <label for="email_address">Email Address</label>
+  <input id="email_address" type="text" name="email">
 
-	<label for="name">Name</label>
-	<input id="name" type="text" name="name">
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name">
 
-	<label for="message">Message</label>
-	<textarea id="message" name="message"></textarea>
+  <label for="message">Message</label>
+  <textarea id="message" name="message"></textarea>
 
-	<input type="hidden" name="_to" value="contact@example.com">
-	<input type="text" name="_gotcha" style="display: none;">
+  <input type="hidden" name="_to" value="contact@example.com">
+  <input type="text" name="_gotcha" style="display: none;">
 
-	<input type="submit" value="Send Message">
+  <input type="submit" value="Send Message">
 </form> -->
 
 <script type="text/javascript">
-	window.mapData = {{ page.map | jsonify }};
+  window.mapData = {{ page.map | jsonify }};
 
-	function initMap() {
-		var myOptions = {
-			styles: [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}],
-			zoom: window.mapData.zoom,
-			center: new google.maps.LatLng(window.mapData.latitude, window.mapData.longitude)
-		};
-		var map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
-		var marker = new google.maps.Marker({
-			map: map,
-			position: new google.maps.LatLng(window.mapData.latitude, window.mapData.longitude)
-		});
+  function initMap() {
+    var myOptions = {
+      styles: [{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"color":"#f7f1df"}]},{"featureType":"landscape.natural","elementType":"geometry","stylers":[{"color":"#d0e3b4"}]},{"featureType":"landscape.natural.terrain","elementType":"geometry","stylers":[{"visibility":"off"}]},{"featureType":"poi","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"color":"#fbd3da"}]},{"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#bde6ab"}]},{"featureType":"road","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffe15f"}]},{"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#efd151"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffffff"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"color":"black"}]},{"featureType":"transit.station.airport","elementType":"geometry.fill","stylers":[{"color":"#cfb2db"}]},{"featureType":"water","elementType":"geometry","stylers":[{"color":"#a2daf2"}]}],
+      zoom: window.mapData.zoom,
+      center: new google.maps.LatLng(window.mapData.latitude, window.mapData.longitude)
+    };
+    var map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
+    var marker = new google.maps.Marker({
+      map: map,
+      position: new google.maps.LatLng(window.mapData.latitude, window.mapData.longitude)
+    });
 
-		google.maps.event.addDomListener(window, "resize", function () {
-			map.setCenter(myOptions.center);
-		});
-	}
+    google.maps.event.addDomListener(window, "resize", function () {
+      map.setCenter(myOptions.center);
+    });
+  }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ site.google_maps_javascript_api_key }}&amp;callback=initMap"></script>

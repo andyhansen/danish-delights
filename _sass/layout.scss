@@ -22,7 +22,7 @@ h1 img.logo {
 	font-size: 1.5em;
 }
 
-.open_hours {
+.open-hours {
 	width: 600px;
 	margin: 0 auto;
 	font-size: 1.5em;
@@ -32,6 +32,11 @@ h1 img.logo {
 	li {
 		margin: 0.5em;
 	}
+}
+
+.phone-number {
+	cursor: pointer;
+	text-decoration: underline;
 }
 
 .dates {

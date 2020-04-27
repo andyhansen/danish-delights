@@ -1,7 +1,7 @@
 ---
 title: Danish Delights Bakery
 description: 
-background_image: /uploads/danish-flag.jpeg
+background_image: /uploads/background.jpeg
 map:
   address: 604 Hillside Rd, South Dunedin, Dunedin 9012
   zoom: 16
@@ -31,6 +31,9 @@ open_hours:
   A bunch of other stuff down here too because I kind of want this to be a fairly big paragraph..
 </p>
 
+<h3>Contact</h3>
+<p>Give us a call at <a class="phone-number" href"tel:034555805">03 455 4808</a></p>
+
 <!-- <h3>Photos</h3>
 <div class="gallery">
   {% for feature in page.photos %}
@@ -43,15 +46,6 @@ open_hours:
   {% endfor %}
 </div> -->
 
-<h3>Photos</h3>
-<div class="grid">
-  {% for photo in page.photos %}
-    <div class="grid-item">
-      <a class="fancybox" rel="group" href="{% include relative-src.html src=photo.image %}"><img src="{% include relative-src.html src=photo.image %}" alt="{{ photo.title }}"/></a>
-    </div>
-  {% endfor %}
-</div>
-
 <!-- <h3>Tell your friends</h3>
 <div class="sharing">
   {% assign share_url = page.url | absolute_url | cgi_escape %}
@@ -62,18 +56,24 @@ open_hours:
 </div> -->
 
 <h3>Hours</h3>
-<ul class="open_hours">
+<ul class="open-hours">
   {% for opening in page.open_hours %}
     <li><span class="day">{{ opening.day }}</span>: <span class="hours">{{ opening.hours }}</span></li>
   {% endfor %}
 </ul>
 
-<h3>Contact</h3>
-<p>Give us a call at <a href"tel:034555805">03 455 4808</a></p>
-
 <h3>Location</h3>
 <address class="address"><a href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{% include icons/place.svg %} {{ page.map.address }}</a></address>
 <div class="map" id="gmap_canvas"></div>
+
+<h3>Photos</h3>
+<div class="grid">
+  {% for photo in page.photos %}
+    <div class="grid-item">
+      <a class="fancybox" rel="group" href="{% include relative-src.html src=photo.image %}"><img src="{% include relative-src.html src=photo.image %}" alt="{{ photo.title }}"/></a>
+    </div>
+  {% endfor %}
+</div>
 
 <!-- <h3>Contact</h3>
 <p>Send us a message with any questions about sponsoring the event, tickets or anything else.</p>

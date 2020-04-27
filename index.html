@@ -42,6 +42,7 @@ open_hours:
   If you'd like to place an order, give us a call at <a href"tel:034554808">03 455 4808</a>.<!--, or an email at <a href="mailto:placeholder.email@gmail.com">placeholder.email@gmail.com</a>-->
   Orders can be handled as long as they are placed before 3pm the day before.
   You are also welcome to call and see if we have what you are looking for in stock.
+  <a href="https://docs.google.com/spreadsheets/d/1qSO8xAkTOwcgFza4dFyYJBTEonaZTFOSL7_tE6qJK9I">We keep a Google sheet if you'd like to know our prices and products before ordering.</a>
 </p>
 
 <h3>Photos</h3>
@@ -65,7 +66,7 @@ open_hours:
   {% endfor %}
 </div> -->
 
-<h3>Opens Hours</h3>
+<h3>Opening Hours</h3>
 <ul class="open-hours">
   {% for opening in page.open_hours %}
     <li><span class="day">{{ opening.day }}</span> <span class="hours">{{ opening.hours }}</span></li>

@@ -15,7 +15,10 @@ $(document).ready(function () {
 });
 
 $(window).on("load", function () {
-	var msnry = new Masonry( ".grid", {
+	if (!document.querySelector(".grid")) return;
+
+
+	new Masonry( ".grid", {
 		itemSelector: ".grid-item",
 		fitWidth: true
 	});

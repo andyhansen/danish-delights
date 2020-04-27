@@ -72,14 +72,14 @@ open_hours:
 <address class="address"><a href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{% include icons/place.svg %} {{ page.map.address }}</a></address>
 <div class="map" id="gmap_canvas"></div>
 
-<!-- <h3>Photos</h3>
+<h3>Photos</h3>
 <div class="grid">
   {% for photo in page.photos %}
     <div class="grid-item">
       <a class="fancybox" rel="group" href="{% include relative-src.html src=photo.image %}"><img src="{% include relative-src.html src=photo.image %}" alt="{{ photo.title }}"/></a>
     </div>
   {% endfor %}
-</div> -->
+</div>
 
 <!-- <h3>Contact</h3>
 <p>Send us a message with any questions about sponsoring the event, tickets or anything else.</p>

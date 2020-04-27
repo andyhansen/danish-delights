@@ -40,6 +40,15 @@ open_hours:
   Give us a call at <a href"tel:034555805">03 455 4808</a>.<!--, or an email at <a href="mailto:placeholder.email@gmail.com">placeholder.email@gmail.com</a>-->
 </p>
 
+<h3>Photos</h3>
+<div class="grid">
+  {% for photo in page.photos %}
+    <div class="grid-item">
+      <a class="fancybox" rel="group" href="{% include relative-src.html src=photo.image %}"><img src="{% include relative-src.html src=photo.image %}" alt="{{ photo.title }}"/></a>
+    </div>
+  {% endfor %}
+</div>
+
 <!-- <h3>Photos</h3>
 <div class="gallery">
   {% for feature in page.photos %}
@@ -52,16 +61,7 @@ open_hours:
   {% endfor %}
 </div> -->
 
-<!-- <h3>Tell your friends</h3>
-<div class="sharing">
-  {% assign share_url = page.url | absolute_url | cgi_escape %}
-  <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}">{% include icons/social-icon.html icon="Facebook" %}</a>
-  <a class="twitter" href="https://twitter.com/intent/tweet?url={{ share_url }}&amp;text=I'm%20going%20to%20this%20event!">{% include icons/social-icon.html icon="Twitter" %}</a>
-  <a class="google-plus" href="https://plus.google.com/share?url={{ share_url }}">{% include icons/social-icon.html icon="Google Plus" %}</a>
-  <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ share_url }}">{% include icons/social-icon.html icon="LinkedIn" %}</a>
-</div> -->
-
-<h3>Hours</h3>
+<h3>Opens Hours</h3>
 <ul class="open-hours">
   {% for opening in page.open_hours %}
     <li><span class="day">{{ opening.day }}</span> <span class="hours">{{ opening.hours }}</span></li>
@@ -71,15 +71,6 @@ open_hours:
 <h3>Location</h3>
 <address class="address"><a href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{% include icons/place.svg %} {{ page.map.address }}</a></address>
 <div class="map" id="gmap_canvas"></div>
-
-<h3>Photos</h3>
-<div class="grid">
-  {% for photo in page.photos %}
-    <div class="grid-item">
-      <a class="fancybox" rel="group" href="{% include relative-src.html src=photo.image %}"><img src="{% include relative-src.html src=photo.image %}" alt="{{ photo.title }}"/></a>
-    </div>
-  {% endfor %}
-</div>
 
 <!-- <h3>Contact</h3>
 <p>Send us a message with any questions about sponsoring the event, tickets or anything else.</p>

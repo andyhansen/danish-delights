@@ -64,25 +64,6 @@ open_hours:
 <address class="address"><a href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{% include icons/place.svg %} {{ page.map.address }}</a></address>
 <div class="map" id="gmap_canvas"></div>
 
-<!-- <h3>Contact</h3>
-<p>Send us a message with any questions about sponsoring the event, tickets or anything else.</p>
-
-<form method="post" action="{{ site.baseurl }}/index.html?submit=success">
-  <label for="email_address">Email Address</label>
-  <input id="email_address" type="text" name="email">
-
-  <label for="name">Name</label>
-  <input id="name" type="text" name="name">
-
-  <label for="message">Message</label>
-  <textarea id="message" name="message"></textarea>
-
-  <input type="hidden" name="_to" value="contact@example.com">
-  <input type="text" name="_gotcha" style="display: none;">
-
-  <input type="submit" value="Send Message">
-</form> -->
-
 <script type="text/javascript">
   window.mapData = {{ page.map | jsonify }};
 

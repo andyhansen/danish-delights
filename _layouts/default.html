@@ -23,7 +23,6 @@
 		{% endif %}
 
 		{% if jekyll.environment == 'production' and site.google_tag_key != '' %}
-			<!-- Global site tag (gtag.js) - Google Analytics -->
 			<script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_tag_key }}"></script>
 			<script>
 				window.dataLayer = window.dataLayer || [];
@@ -36,6 +35,15 @@
 	</head>
 
 	<body>
+		<div class="notice">
+			<h2>Level 3 Notice</h2>
+			<p>
+				We will be open again from the Saturday the 2nd of May.
+				<a href="#order">You are welcome to place an order ahead of time</a> and we will have it ready for you.
+				We are looking forward to seeing your lovely faces again! :)
+			</p>
+		</div>
+  
 		<div class="content">{{ content }}</div>
 
 		<script src="{{ site.baseurl }}/js/jquery.min.js"></script>

@@ -39,11 +39,17 @@ open_hours:
 
 <h3>Placing an order</h3>
 <p>
-  If you'd like to place an order, give us a call at <a href"tel:034554808">03 455 4808</a>.<!--, or an email at <a href="mailto:placeholder.email@gmail.com">placeholder.email@gmail.com</a>-->
-  Orders can be handled as long as they are placed before 3pm the day before.
-  You are also welcome to call and see if we have what you are looking for in stock.
+  If you'd like to place an order give us a call at <a href"tel:034554808">03 455 4808</a>, an email at <a href="mailto:orders.danish@gmail.com">orders.danish@gmail.com</a>, or a text at <a href"tel:0223757643">022 37 57 643</a>.
+  We are happy to reserve a few things for you on the day, but larger orders must be placed before close of business the day before.
   <a href="https://docs.google.com/spreadsheets/d/1qSO8xAkTOwcgFza4dFyYJBTEonaZTFOSL7_tE6qJK9I">We keep a Google sheet if you'd like to know our prices and products before ordering.</a>
 </p>
+
+<h3>Opening Hours</h3>
+<ul class="open-hours">
+  {% for opening in page.open_hours %}
+    <li><span class="day">{{ opening.day }}</span> <span class="hours">{{ opening.hours }}</span></li>
+  {% endfor %}
+</ul>
 
 <h3>Photos</h3>
 <div class="grid">
@@ -53,25 +59,6 @@ open_hours:
     </div>
   {% endfor %}
 </div>
-
-<!-- <h3>Photos</h3>
-<div class="gallery">
-  {% for feature in page.photos %}
-  <a href="{% include relative-src.html src=feature.link %}">
-    <div class="inner-wrapper">
-      <img src="{% include relative-src.html src=feature.image %}" alt="{{ feature.title }}">
-    </div>
-    <p class="caption">{{ feature.title }}</p>
-  </a>
-  {% endfor %}
-</div> -->
-
-<h3>Opening Hours</h3>
-<ul class="open-hours">
-  {% for opening in page.open_hours %}
-    <li><span class="day">{{ opening.day }}</span> <span class="hours">{{ opening.hours }}</span></li>
-  {% endfor %}
-</ul>
 
 <h3>Location</h3>
 <address class="address"><a href="https://www.google.com/maps/place/{{ page.map.address | url_encode }}">{% include icons/place.svg %} {{ page.map.address }}</a></address>
